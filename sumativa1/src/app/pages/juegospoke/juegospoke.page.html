@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Juegos de Pokemon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let juego of listaJuegos">
+    <ion-card-header>
+      <ion-card-title>{{ juego.nombre }}</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <img src="{{ juego.imagen }}" alt="{{ juego.nombre }}" class="juego-imagen">
+      <p>Lanzamiento: {{ juego.lanzamiento }}</p>
+      <p>Plataforma: {{ juego.plataforma }}</p>
+      <p>Descripción: {{ juego.descripcion }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,38 @@
+ion-content {
+    --background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .pokemon-card {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    margin: 20px auto;
+    background-color: #f80202;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    ion-card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  
+    img {
+      max-width: 100%;
+      border: 2px solid #000;
+      border-radius: 5px;
+    }
+  }
+  
+  ion-button {
+    margin-top: 20px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }

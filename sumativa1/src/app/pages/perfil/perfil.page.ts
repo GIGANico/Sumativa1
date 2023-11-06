@@ -8,21 +8,25 @@ import { AlertController } from '@ionic/angular';
 })
 export class PerfilPage implements OnInit {
 
+  nombre: string="";
+  apellido: string="";
+  
+
   constructor(private alertController: AlertController) { }
 
   ngOnInit() {
   }
 
-  ingresar(){
-    //this.presentAlert(this.user.usuario)
+  guardar(){
+    this.presentAlert(this.nombre +' '+ this.apellido)
   }
 
 
-  //[routerLink]="['/home']   para pasar entre paginas sin enviar datos
+ 
 
   async presentAlert(mensaje:string) {
     const alert = await this.alertController.create({
-      header: 'Mensaje',
+      header: 'Hola Entrenador',
       message: mensaje,
       buttons: ['Confirmar'],
     });

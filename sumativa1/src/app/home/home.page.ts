@@ -14,8 +14,9 @@ export class HomePage {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.data = this.router.getCurrentNavigation()?.extras?.state?.['user'];
         console.log(this.data)
-      }else(this.router.navigate(['/login']))
+      }
     });
   }
+  
 
 }

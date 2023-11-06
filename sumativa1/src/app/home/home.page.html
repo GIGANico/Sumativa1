@@ -1,17 +1,59 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Pagina principal
-    </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button [routerLink]="['/perfil']">
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Menu</ion-title>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
- <ion-label>Usuario: {{data.usuario}}</ion-label>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <h1 class="ion-text-center">Bienvenido Maestro Pokemon</h1>
+  <h2 class="ion-text-center">{{data.usuario}}</h2>
+
+
+
+  <ion-card class="custom-card">
+    <img class="custom-image" alt="Silhouette of mountains"
+      src="https://i.pinimg.com/564x/9c/73/03/9c7303b9bfdd04722ff33c4eccd2be2b.jpg" />
+    <ion-card-header>
+      <ion-card-title>POKEDEX</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Aqui podras ver los primeros 151 Pokemon.
+    </ion-card-content>
+    <ion-button shape="block" [routerLink]="['/pokedex']">Ingresar</ion-button>
+  </ion-card>
+
+
+  <ion-card class="custom-card">
+    <img class="custom-image" alt="Silhouette of mountains"
+      src="https://cdn.alfabetajuega.com/alfabetajuega/2021/07/1366_2000.jpg" />
+    <ion-card-header>
+      <ion-card-title>Todos los juegos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Aqui podras ver los juegos que han salido.
+    </ion-card-content>
+    <ion-button shape="block" [routerLink]="['/juegospoke']">Ingresar</ion-button>
+  </ion-card>
+
+
+  <ion-card class="custom-card">
+    <img class="custom-image" alt="Silhouette of mountains"
+      src="https://cdn.vox-cdn.com/thumbor/mAse9qITfzLCbWg5QAMVjNbeY-Y=/0x0:1920x1080/1200x800/filters:focal(271x342:577x648)/cdn.vox-cdn.com/uploads/chorus_image/image/57794409/who_pokemon.0.jpg" />
+    <ion-card-header>
+      <ion-card-title>Que pokemon eres</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Muestra un pokemon al azar
+    </ion-card-content>
+    <ion-button shape="block" [routerLink]="['/quepokeeres']">Ingresar</ion-button>
+  </ion-card>
+
+
 </ion-content>

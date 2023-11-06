@@ -19,6 +19,22 @@ const routes: Routes = [
     path: 'perfil',
     loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
+  {
+    path: 'pokedex',
+    loadChildren: () => import('./pages/pokedex/pokedex.module').then( m => m.PokedexPageModule)
+  },
+  {
+    path: 'pokemon',
+    loadChildren: () => import('./pages/pokemon/pokemon.module').then( m => m.PokemonPageModule)
+  },
+  {
+    path: 'juegospoke',
+    loadChildren: () => import('./pages/juegospoke/juegospoke.module').then( m => m.JuegospokePageModule)
+  },
+  {
+    path: 'quepokeeres',
+    loadChildren: () => import('./pages/quepokeeres/quepokeeres.module').then( m => m.QuepokeeresPageModule)
+  },
 ];
 
 @NgModule({

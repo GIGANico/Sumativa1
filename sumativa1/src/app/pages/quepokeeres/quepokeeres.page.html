@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Que pokemon eres</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="pokemon-card" *ngIf="randomPokemon">
+    <ion-card-header>
+      <ion-card-title>{{ randomPokemon.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img [src]="randomPokemon.imagen" alt="Pokémon">
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="full" (click)="getRandomPokemon()">¡Descúbrelo!</ion-button>
+</ion-content>
