@@ -1,5 +1,4 @@
 ion-content {
-    --background: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,26 +10,26 @@ ion-content {
     max-width: 400px;
     text-align: center;
     margin: 20px auto;
-    background-color: #f80202;
+    background-color: rgb(60, 153, 196);
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(85, 3, 3, 0.1);
   
     ion-card-title {
       font-size: 1.5rem;
       font-weight: bold;
+      color: #000000;
     }
   
     img {
       max-width: 100%;
-      border: 2px solid #000;
+      border: 2px solid #000000;
       border-radius: 5px;
     }
   }
   
   ion-button {
     margin-top: 20px;
-    background-color: #ff6600;
-    color: #fff;
+    color: #000000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
