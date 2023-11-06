@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'quepokeeres',
     loadChildren: () => import('./pages/quepokeeres/quepokeeres.module').then( m => m.QuepokeeresPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
 ];
 
 @NgModule({
