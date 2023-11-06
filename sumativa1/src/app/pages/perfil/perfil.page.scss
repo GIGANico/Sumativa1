@@ -3,3 +3,33 @@
     height: 100%; 
     object-fit: cover; 
   }
+
+
+  ion-card-content {
+    color: white;
+    background: blue;
+    margin: 10px;
+  
+    --background: red;
+  }
+  
+
+  ion-item {
+    color: white;
+    background: blue;
+  
+    --background: red;
+  }
+
+  ion-card {
+    color: white;
+    background: blue;
+  
+    --background: red;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    ion-card {
+      --background: green;
+    }
+  }

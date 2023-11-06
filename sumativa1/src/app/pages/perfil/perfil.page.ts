@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Component, ElementRef, ViewChildren, ViewChild } from '@angular/core';
+import type { OnInit, QueryList } from '@angular/core';
+import type { Animation } from '@ionic/angular';
+import { AnimationController, IonCard } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
@@ -7,18 +10,36 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
+  @ViewChild(IonCard, { read: ElementRef }) card!: ElementRef<HTMLIonCardElement>;
+
+  private animation!: Animation;
 
   nombre: string="";
   apellido: string="";
   
 
-  constructor(private alertController: AlertController) { }
+  constructor(private alertController: AlertController, private animationCtrl: AnimationController) { }
 
   ngOnInit() {
   }
 
   guardar(){
     this.presentAlert(this.nombre +' '+ this.apellido)
+  }
+
+
+  ngAfterViewInit() {
+    this.animation = this.animationCtrl
+      .create()
+      .addElement(this.card.nativeElement)
+      .duration(500)
+      .iterations(Infinity)
+      .direction('alternate')
+      .fromTo('background', 'blue', 'var(--background)');
+  }
+
+  play() {
+    this.animation.play();
   }
 
 

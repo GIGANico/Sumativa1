@@ -8,28 +8,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
+  <ion-card #card>
     <ion-card-header>
       <ion-card-title class="ion-text-center">Tu perfil</ion-card-title>
     </ion-card-header>
     <img id="perfil-image" alt="Silhouette of mountains" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf-OKq2wq-clMv2SWQ4MFKD67-m3lKVvRLvw&usqp=CAU" />
     
-    <ion-card-content>
-      <ion-item>
-        <ion-input label="Nombre" placeholder="Ingrese su nombre" [(ngModel)]="nombre"></ion-input>
+    <ion-card-content >
+      <ion-item >
+        <ion-input  label="Nombre" placeholder="Ingrese su nombre" [(ngModel)]="nombre"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-input label="Apellido" placeholder="Ingrese su apeliido" [(ngModel)]="apellido"></ion-input>
+      <ion-item >
+        <ion-input  label="Apellido" placeholder="Ingrese su apeliido" [(ngModel)]="apellido"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-select label="Cual te gusta mas" placeholder="Pokemon">
+      <ion-item >
+        <ion-select  label="Cual te gusta mas" placeholder="Pokemon">
           <ion-select-option value="apple">Charmander</ion-select-option>
           <ion-select-option value="banana">Squirtle</ion-select-option>
           <ion-select-option value="orange">bulbasaur</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-card-content>
-    <ion-button shape="block" (click)="guardar()">Guardar</ion-button>
+    <ion-button shape="block" (click)="play()" (click)="guardar()">Guardar</ion-button>
     
   </ion-card>
 
