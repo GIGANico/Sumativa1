@@ -32,6 +32,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/juegospoke/juegospoke.module').then( m => m.JuegospokePageModule)
   },
   {
+    path: 'agregarjuego',
+    loadChildren: () => import('./pages/agregarjuego/agregarjuego.module').then( m => m.AgregarjuegoPageModule)
+  },
+  {
+    path: 'modificarjuego',
+    loadChildren: () => import('./pages/modificarjuego/modificarjuego.module').then( m => m.ModificarjuegoPageModule)
+  },
+  {
     path: 'quepokeeres',
     loadChildren: () => import('./pages/quepokeeres/quepokeeres.module').then( m => m.QuepokeeresPageModule)
   },

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
+import { ServicioDBService } from 'src/app/services/servicio-db.service';
 
 @Component({
   selector: 'app-juegospoke',
@@ -6,6 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./juegospoke.page.scss'],
 })
 export class JuegospokePage implements OnInit {
+
+  arregloJuegos: any =[
+    {
+    id: '',
+    nombre: '',
+    anno: '',
+    plataforma: '',
+    descripcion: ''
+    }
+  ]
+
+  /*
   listaJuegos = [
     {
       nombre: 'Pokémon Rojo',
@@ -30,10 +44,38 @@ export class JuegospokePage implements OnInit {
     }
     // voy a agregar mas proximamente
   ];
+  */
 
-  constructor() { }
+  constructor(private router: Router, private servicioBD: ServicioDBService) { }
 
   ngOnInit() {
+    this.servicioBD.dbState().subscribe(res => {
+      if(res) {
+        this.servicioBD.fetchJuegos().subscribe(item => {
+          this.arregloJuegos = item;
+        })
+      }
+    })
+  }
+
+
+  modificar(x: any) {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        idEnviado: x.id,
+        nombreEnviado: x.nombre,
+        annoEnviado: x.anno,
+        plataformaEnviado: x.plataforma,
+        descripcionEnviado: x.descripcion
+      }
+    }
+
+    this.router.navigate(['/modificarjuego'], navigationExtras);
+  }
+
+  eliminar(x: any) {
+    this.servicioBD.eliminarJuegos(x.id);
+    this.servicioBD.presentToast("Juego Eliminado");
   }
 
 }

@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>agregarjuego</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">agregar juego</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <h2 class="ion-text-center">Juego a agregar</h2>
+  <ion-item>
+    <ion-label position="floating">Nombre del Juego</ion-label>
+    <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">año del lanzamiento</ion-label>
+    <ion-input type="text" [(ngModel)]="anno"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Plataforma donde salio</ion-label>
+    <ion-input type="text" [(ngModel)]="plataforma"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Descripción del juego</ion-label>
+    <ion-input type="text" [(ngModel)]="descripcion"></ion-input>
+  </ion-item>
+
+  <ion-button shape="block" (click)="enviarDatos()">Guardar Juego</ion-button>
+</ion-content>
