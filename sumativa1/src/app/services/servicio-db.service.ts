@@ -14,9 +14,9 @@ export class ServicioDBService {
 
   public database! : SQLiteObject;
 
-  tablaJuego: string = "CREATE TABLE IF NOT EXISTS juego(id_juego INTEGER PRIMARY KEY autoincrement, nombre VARCHAR(100) NOT NULL, anno_lanzamiento NUMBER(5) NOT NULL, plataforma VARCHAR(100) NOT NULL, descripcion TEXT NOT NULL);";
+  tablaJuego: string = "CREATE TABLE IF NOT EXISTS juego(id_juego INTEGER PRIMARY KEY autoincrement, nombre VARCHAR(100) NOT NULL, imagen TEXT NOT NULL, anno_lanzamiento NUMBER(5) NOT NULL, plataforma VARCHAR(100) NOT NULL, descripcion TEXT NOT NULL);";
 
-  registroJuego: string = "INSERT or IGNORE INTO juego(id_juego, nombre, anno_lanzamiento, plataforma, descripcion) VALUES (1, 'Pokemon Rojo','1996','Game Boy','El primer juego de pokemon.');";
+  registroJuego: string = "INSERT or IGNORE INTO juego(id_juego, nombre, imagen, anno_lanzamiento, plataforma, descripcion) VALUES (1, 'Pokemon Rojo','https://consolaytablero.com/wp-content/uploads/2014/07/pokemon-rojo.jpg','1996','Game Boy','El primer juego de pokemon.');";
   
   listaJuegos = new BehaviorSubject([]);
 
@@ -86,6 +86,7 @@ export class ServicioDBService {
           items.push({
             id: res.rows.item(i).id_juego,
             nombre: res.rows.item(i).nombre,
+            imagen: res.rows.item(i).imagen,
             anno: res.rows.item(i).anno_lanzamiento,
             plataforma: res.rows.item(i).plataforma,
             descripcion: res.rows.item(i).descripcion
@@ -105,16 +106,16 @@ export class ServicioDBService {
   }
 
 
-  insertaJuegos(nombre: any, anno: any, plataforma: any, descripcion: any){
-    let data = [nombre, anno, plataforma, descripcion];
-    return this.database.executeSql('INSERT INTO juego(nombre, anno_lanzamiento, plataforma, descripcion) VALUES (?,?,?,?)', data).then(res =>{
+  insertaJuegos(nombre: any, imagen: any, anno: any, plataforma: any, descripcion: any){
+    let data = [nombre, imagen, anno, plataforma, descripcion];
+    return this.database.executeSql('INSERT INTO juego(nombre, imagen, anno_lanzamiento, plataforma, descripcion) VALUES (?,?,?,?,?)', data).then(res =>{
       this.buscarJuegos();
     });
   }
 
-  modificarJuegos(id: any, nombre: any, anno: any, plataforma: any, descripcion: any){
-    let data = [nombre, anno, plataforma, descripcion, id];
-    return this.database.executeSql('UPDATE juego SET nombre = ?, anno_lanzamiento = ?, plataforma = ?, descripcion = ? WHERE id_juego = ?',data).then(data2=>{
+  modificarJuegos(id: any, nombre: any, imagen: any, anno: any, plataforma: any, descripcion: any){
+    let data = [nombre, imagen, anno, plataforma, descripcion, id];
+    return this.database.executeSql('UPDATE juego SET nombre = ?, imagen = ?, anno_lanzamiento = ?, plataforma = ?, descripcion = ? WHERE id_juego = ?',data).then(data2=>{
       this.buscarJuegos();
     })
   }

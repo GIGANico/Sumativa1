@@ -10,6 +10,7 @@ import { ServicioDBService } from 'src/app/services/servicio-db.service';
 export class ModificarjuegoPage implements OnInit {
 
   nombre: string = "";
+  imagen: string = "";
   anno: number = 0;
   plataforma: string = "";
   descripcion: string = "";
@@ -20,6 +21,7 @@ export class ModificarjuegoPage implements OnInit {
       if(this.router.getCurrentNavigation()?.extras.state){
         this.id = this.router.getCurrentNavigation()?.extras?.state?.['idEnviado'];
         this.nombre = this.router.getCurrentNavigation()?.extras?.state?.['nombreEnviado'];
+        this.imagen = this.router.getCurrentNavigation()?.extras?.state?.['imagenEnviado'];
         this.anno = this.router.getCurrentNavigation()?.extras?.state?.['annoEnviado'];
         this.plataforma = this.router.getCurrentNavigation()?.extras?.state?.['plataformaEnviado'];
         this.descripcion = this.router.getCurrentNavigation()?.extras?.state?.['descripcionEnviado'];
@@ -32,7 +34,7 @@ export class ModificarjuegoPage implements OnInit {
 
 
   enviarDatos(){
-    this.servicio.modificarJuegos(this.id,this.nombre,this.anno,this.plataforma,this.descripcion)
+    this.servicio.modificarJuegos(this.id,this.nombre,this.imagen,this.anno,this.plataforma,this.descripcion)
     this.servicio.presentToast("Juego Actualizado");
     this.router.navigate(['/juegospoke']);
   }

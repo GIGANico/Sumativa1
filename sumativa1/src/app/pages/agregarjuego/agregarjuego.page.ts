@@ -11,6 +11,7 @@ import { ServicioDBService } from 'src/app/services/servicio-db.service';
 export class AgregarjuegoPage implements OnInit {
 
   nombre: string = "";
+  imagen: string = "";
   anno: number = 0;
   plataforma: string = "";
   descripcion: string = "";
@@ -22,7 +23,7 @@ export class AgregarjuegoPage implements OnInit {
 
 
   enviarDatos(){
-    this.db.insertaJuegos(this.nombre,this.anno,this.plataforma,this.descripcion)
+    this.db.insertaJuegos(this.nombre,this.imagen,this.anno,this.plataforma,this.descripcion)
     this.db.presentToast("Juego Agregado");
     this.router.navigate(['/juegospoke']);
   }

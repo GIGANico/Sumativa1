@@ -13,6 +13,7 @@ export class JuegospokePage implements OnInit {
     {
     id: '',
     nombre: '',
+    imagen: '',
     anno: '',
     plataforma: '',
     descripcion: ''
@@ -64,6 +65,7 @@ export class JuegospokePage implements OnInit {
       state: {
         idEnviado: x.id,
         nombreEnviado: x.nombre,
+        imagenEnviado: x.imagen,
         annoEnviado: x.anno,
         plataformaEnviado: x.plataforma,
         descripcionEnviado: x.descripcion
