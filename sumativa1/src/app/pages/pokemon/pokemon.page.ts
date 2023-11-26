@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PokeapiService } from 'src/app/services/pokeapi.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonPage implements OnInit {
 
-  constructor() { }
+
+  details: any;
+
+  constructor(private route: ActivatedRoute, private pokeapi: PokeapiService) { }
+
+  
 
   ngOnInit() {
+    let index = this.route.snapshot.paramMap.get('index');
+
+    this.pokeapi.getPokeDetails(index).subscribe(details => {
+      console.log('Details:', details);
+      this.details = details;
+    });
   }
 
 }

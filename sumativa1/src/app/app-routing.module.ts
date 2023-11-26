@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'pokedex',
     pathMatch: 'full'
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/pokedex/pokedex.module').then( m => m.PokedexPageModule)
   },
   {
-    path: 'pokemon',
+    path: 'pokedex/:index',
     loadChildren: () => import('./pages/pokemon/pokemon.module').then( m => m.PokemonPageModule)
   },
   {
