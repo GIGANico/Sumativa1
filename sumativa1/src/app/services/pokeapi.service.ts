@@ -4,10 +4,18 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 
+interface Sprite {
+  front_default?: string;
+  // Agrega otras propiedades según la estructura real de 'sprites'
+}
+
+
 interface Pokemon {
   id: number;
   imagen?: string;
   pokeIndex?: number;
+  sprites?: Sprite;
+  images?: any[];
   // Otras propiedades que tenga el objeto pokemon, ajusta según la estructura real
 }
 
@@ -61,12 +69,12 @@ export class PokeapiService {
   }
 
   getPokeDetails(index: any) {
-    return this.http.get(`${this.baseUrl}/pokemon/${index}`).pipe(
+    return this.http.get<Pokemon>(`${this.baseUrl}/pokemon/${index}`).pipe(
       map(poke => {
-        //let sprites = Object.keys(poke['sprites']);
-        //poke['images'] = sprites
-        //  .map(spriteKey => poke['sprites'][spriteKey])
-        //  .filter(img => img);
+        let sprites = poke.sprites ? Object.keys(poke.sprites): [];
+        poke.images = sprites
+          .map(spriteKey => poke.sprites ? poke.sprites[spriteKey as keyof Sprite] : '')
+          .filter(img => img);
         return poke;
       })
     );

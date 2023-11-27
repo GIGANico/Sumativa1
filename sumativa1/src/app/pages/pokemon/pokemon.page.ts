@@ -11,10 +11,16 @@ export class PokemonPage implements OnInit {
 
 
   details: any;
+  slideOpts = {
+    autoplay: {
+      delay: 1,
+      disableOnInteraction: true
+    }
+  };
 
   constructor(private route: ActivatedRoute, private pokeapi: PokeapiService) { }
 
-  
+
 
   ngOnInit() {
     let index = this.route.snapshot.paramMap.get('index');
@@ -22,6 +28,7 @@ export class PokemonPage implements OnInit {
     this.pokeapi.getPokeDetails(index).subscribe(details => {
       console.log('Details:', details);
       this.details = details;
+      this.details.images = details.images ? details.images.slice() : [];
     });
   }
 

@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'pokedex',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
