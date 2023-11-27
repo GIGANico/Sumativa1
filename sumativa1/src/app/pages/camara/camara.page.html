@@ -10,4 +10,9 @@
       <ion-title size="large">camara</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div id="container">
+    <ion-button (click)="takePicture()">sacar foto</ion-button>
+    <img *ngIf="imageSource" src="{{imageSource}}" alt="image" style="width: 100%;max-width: 250px;">
+  </div>
 </ion-content>
