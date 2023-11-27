@@ -23,6 +23,8 @@ export class LoginPage implements OnInit {
   }
 
   ingresar(){
+    localStorage.setItem('token', this.user.usuario);
+    
     let navigationExtras : NavigationExtras ={
       state: {
         user: this.user

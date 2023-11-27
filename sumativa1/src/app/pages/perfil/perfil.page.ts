@@ -16,11 +16,13 @@ export class PerfilPage implements OnInit {
 
   nombre: string="";
   apellido: string="";
-  
+  token: any = "";
 
   constructor(private alertController: AlertController, private animationCtrl: AnimationController) { }
 
   ngOnInit() {
+    this.token = localStorage.getItem('token');
+    console.log(this.token);
   }
 
   guardar(){

@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 
 interface Sprite {
   front_default?: string;
-  // Agrega otras propiedades según la estructura real de 'sprites'
 }
 
 
@@ -16,12 +15,11 @@ interface Pokemon {
   pokeIndex?: number;
   sprites?: Sprite;
   images?: any[];
-  // Otras propiedades que tenga el objeto pokemon, ajusta según la estructura real
 }
 
 
 interface PokemonResponse {
-  results: any[]; // Puedes ajustar este tipo según la estructura real de la respuesta
+  results: any[]; 
 }
 
 @Injectable({

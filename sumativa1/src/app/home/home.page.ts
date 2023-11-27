@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -6,8 +6,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   data: any;
+  token: any = "";
 
   constructor(private router : Router, private activeRouter: ActivatedRoute) {
     this.activeRouter.queryParams.subscribe(param => {
@@ -16,6 +17,12 @@ export class HomePage {
         console.log(this.data)
       }
     });
+  }
+
+
+  ngOnInit() {
+    this.token = localStorage.getItem('token');
+    console.log(this.token);
   }
   
 
