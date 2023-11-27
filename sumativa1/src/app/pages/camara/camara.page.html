@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>camara</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +14,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
+  <div id="container" class="ion-text-center">
     <ion-button (click)="takePicture()">sacar foto</ion-button>
     <img *ngIf="imageSource" src="{{imageSource}}" alt="image" style="width: 100%;max-width: 250px;">
   </div>
