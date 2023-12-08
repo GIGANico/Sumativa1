@@ -16,9 +16,9 @@ export class ModificarjuegoPage implements OnInit {
   descripcion: string = "";
   id: number = 0;
 
-  constructor(private servicio: ServicioDBService,private router: Router, private activedRouter: ActivatedRoute) {
-    this.activedRouter.queryParams.subscribe(param=>{
-      if(this.router.getCurrentNavigation()?.extras.state){
+  constructor(private servicio: ServicioDBService, private router: Router, private activedRouter: ActivatedRoute) {
+    this.activedRouter.queryParams?.subscribe(param => {
+      if (param && this.router.getCurrentNavigation()?.extras.state) {
         this.id = this.router.getCurrentNavigation()?.extras?.state?.['idEnviado'];
         this.nombre = this.router.getCurrentNavigation()?.extras?.state?.['nombreEnviado'];
         this.imagen = this.router.getCurrentNavigation()?.extras?.state?.['imagenEnviado'];
@@ -26,8 +26,9 @@ export class ModificarjuegoPage implements OnInit {
         this.plataforma = this.router.getCurrentNavigation()?.extras?.state?.['plataformaEnviado'];
         this.descripcion = this.router.getCurrentNavigation()?.extras?.state?.['descripcionEnviado'];
       }
-    })
+    });
   }
+
 
   ngOnInit() {
   }

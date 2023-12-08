@@ -86,7 +86,7 @@ export class QuepokeeresPage implements OnInit {
     return this.clamp(0, delta / this.MAX_TRANSLATE, 1);
   }
 
-  ngAfterViewInit() {
+  ionViewDidEnter() {
     this.animation = this.animationCtrl
       .create()
       .addElement(this.card.nativeElement)
