@@ -31,17 +31,21 @@ export class PerfilPage implements OnInit {
 
 
   ngAfterViewInit() {
-    this.animation = this.animationCtrl
-      .create()
-      .addElement(this.card.nativeElement)
-      .duration(500)
-      .iterations(Infinity)
-      .direction('alternate')
-      .fromTo('background', 'blue', 'var(--background)');
+    if (this.card) {
+      this.animation = this.animationCtrl
+        .create()
+        .addElement(this.card.nativeElement)
+        .duration(500)
+        .iterations(Infinity)
+        .direction('alternate')
+        .fromTo('background', 'blue', 'var(--background)');
+    }
   }
 
   play() {
-    this.animation.play();
+    if (this.animation) {
+      this.animation.play();
+    }
   }
 
 

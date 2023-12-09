@@ -15,8 +15,20 @@ describe('PokemonPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [ {provide: ActivatedRoute, useValue: fakeActivatedRoute}, HttpClient, HttpHandler ]
-      
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get: (param: string) => '1' 
+              }
+            }
+          }
+        },
+        HttpClient,
+        HttpHandler
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(PokemonPage);

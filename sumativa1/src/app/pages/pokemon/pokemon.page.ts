@@ -24,6 +24,7 @@ export class PokemonPage implements OnInit {
 
   ngOnInit() {
     let index = this.route.snapshot.paramMap.get('index');
+    console.log('Index:', index);
 
     this.pokeapi.getPokeDetails(index).subscribe(details => {
       console.log('Details:', details);
