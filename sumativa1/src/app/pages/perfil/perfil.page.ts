@@ -14,7 +14,7 @@ export class PerfilPage implements OnInit {
 
   private animation!: Animation;
 
-  nombre: string="";
+  nombre: string="Nicolas";
   apellido: string="";
   token: any = "";
 

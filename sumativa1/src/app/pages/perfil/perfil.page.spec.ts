@@ -21,4 +21,9 @@ describe('PerfilPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('prueba unitaria donde tiene que ser igual a nombre', () => {
+    var texto = "Nicolas";
+    expect(component.nombre).toBe(texto);
+  });
 });
