@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'sumativa1',
+  appName: 'PokePedia',
   webDir: 'www',
   server: {
     androidScheme: 'https'
